@@ -16,11 +16,11 @@ class FirebaseDatabase {
         this.createCollection(`movies_${team}`);
     }
     async createCollection(collection) {
-        // check to see if the collection exists
-        const collections = await this.db.listCollections();
-        const collectionNames = collections.map(collection => collection.id);
+        // check to see if the collection has more than 0 documents
+        const response = await this.db.collection(collection).get();
+        const collections = response.docs;
         // if the collection doesn't exist, create it
-        if (!collectionNames.includes(collection)) {
+        if (collections.length === 0) {
             await this.db.createCollection(collection);
             // create an array of example movies
             const movies = [
