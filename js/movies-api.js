@@ -6,7 +6,10 @@ let db = new FirebaseDatabase({
 });
 
 // You will use the "db" object to make requests to the database very similarly to how you
-// would use the "fetch" function to make requests to an API.
+// would use the "fetch" function to make requests to an API. The only difference is that
+// you will be adding "db" in front of the "fetch" function.
+// Example: db.fetch(url, options);
+
 // This API has the following endpoints:
 // GET /movies - returns an array of all movies
 // GET /movies/{id} - returns a single movie with the given id
