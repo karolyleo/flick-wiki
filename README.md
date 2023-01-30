@@ -7,7 +7,7 @@ This is a project for Codeup students to gain further understanding of the JavaS
 2. [Project Files](#project-files)
 3. [Firebase Endpoints](#firebase-endpoints)
 4. [Usage](#usage)
-5. [Under the Hood - How the Database Works](#under-the-hood---how-the-database-works)
+5. [Under the Hood - How the Database Works](#under-the-hood---how-the-database-works) (For Instructors)
 
 
 ## Getting Started
