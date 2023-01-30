@@ -6,7 +6,7 @@ This is a project for Codeup students to gain further understanding of the JavaS
 
 1. Fork and clone this repository.
 2. Paste your `keys.js` file (provided by your instructor) into the `js` directory. (This file is ignored by git)
-3. Change the TEAM_NAME in the `movies-api.js` file to your team name.
+3. Change the `YOUR_TEAM_NAME` in the `movies-api.js` file to your team name.
 ```js 
 let db = new FirebaseDatabase({
     team: "YOUR_TEAM_NAME" // Replace this with your team name
