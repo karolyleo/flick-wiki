@@ -99,7 +99,7 @@ class FirebaseDatabase {
     ...
 }
 ```
-This ensures that, although the database is shared, each team has their own collection of movies. This is done by creating a collection with the team name appended to the beginning of the collection name. For example, if the team name is "team1", the collection name will be "movies_team1".
+This ensures that, although the database is shared, each team has their own collection of movies by appending their team name to the beginning of the collection name. For example, if the team name is "team1", the collection name will be "movies_team1".
 
 The `fetch()` method, as previously mentioned, is meant to mimic the normal javascript `fetch()` API, and validates the parameters passed to it to ensure that it is being used correctly. It even requires that the response be parsed as JSON before it is returned. 
 
