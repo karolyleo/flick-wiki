@@ -21,7 +21,6 @@ class FirebaseDatabase {
         const collections = response.docs;
         // if the collection doesn't exist, create it
         if (collections.length === 0) {
-            await this.db.createCollection(collection);
             // create an array of example movies
             const movies = [
                 {
