@@ -103,6 +103,11 @@ This ensures that, although the database is shared, each team has their own coll
 
 The `fetch()` method, as previously mentioned, is meant to mimic the normal javascript `fetch()` API, and validates the parameters passed to it to ensure that it is being used correctly. It even requires that the response be parsed as JSON before it is returned. 
 
+```js 
+let db = new FirebaseDatabase({
+    team: "YOUR_TEAM_NAME" // Replace this with your team name
+});
+```
 ```js
 class FirebaseDatabase {
     ...
