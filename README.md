@@ -88,6 +88,11 @@ The database is built using Firebase Firestore. Each team has a unique collectio
 
 This is made possible by the `FirebaseDatabase` class in the `firebase-config.js` file. This class is initialized with the team name and creates an object with a fetch() method that is meant to mimic the fetch() method that students are already familiar with.
 
+```js 
+let db = new FirebaseDatabase({
+    team: "YOUR_TEAM_NAME" // Replace this with your team name
+});
+```
 ```js
 class FirebaseDatabase {
     constructor({ team }) {
@@ -103,11 +108,6 @@ This ensures that, although the database is shared, each team has their own coll
 
 The `fetch()` method, as previously mentioned, is meant to mimic the normal javascript `fetch()` API, and validates the parameters passed to it to ensure that it is being used correctly. It even requires that the response be parsed as JSON before it is returned. 
 
-```js 
-let db = new FirebaseDatabase({
-    team: "YOUR_TEAM_NAME" // Replace this with your team name
-});
-```
 ```js
 class FirebaseDatabase {
     ...
