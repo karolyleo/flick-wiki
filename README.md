@@ -27,11 +27,11 @@ The project has the following files:
 
 This Firebase API has the following endpoints:
 
-- GET /movies - returns an array of all movies
-- GET /movies/{id} - returns a single movie with the given id
-- POST /movies - creates a new movie and returns the id of the new movie
-- PUT /movies/{id} - updates the movie with the given id
-- DELETE /movies/{id} - deletes the movie with the given id
+- `GET /movies` - returns an array of all movies
+- `GET /movies/{id}` - returns a single movie with the given id
+- `POST /movies` - creates a new movie and returns the id of the new movie
+- `PUT /movies/{id}` - updates the movie with the given id
+- `DELETE /movies/{id}` - deletes the movie with the given id
 ## Usage
 
 You will use the db object to make requests to the database similarly to how you would use the fetch function to make requests to an API. The only difference is that you will be adding "db" in front of the fetch function.
