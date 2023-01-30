@@ -5,7 +5,7 @@ This is a project for Codeup students to gain further understanding of the JavaS
 ## Table of Contents  
 1. [Getting Started](#getting-started)
 2. [Project Files](#project-files)
-3. [Firebase Endpoints](#firebase-endpoints)
+3. [API Endpoints](#firebase-endpoints)
 4. [Usage](#usage)
 5. [Under the Hood - How the Database Works](#under-the-hood---how-the-database-works) (For Instructors)
 
@@ -31,7 +31,7 @@ The project has the following files:
 | `js/firebase-config.js` | Inits all necessary firebase configuration and defines the `FirebaseDatabase` class |
 | `js/movies-api.js` | Defines the `db` object that will be used to make requests to the database, <br>along with a few example functions to get you started. <br>Add any additional functions that interact with the database here.  |
 | `js/index.js` | The main entry point for your application. Add all DOM manipulation code here. |
-## Firebase Endpoints
+## API Endpoints
 
 This Firebase API has the following endpoints:
 
