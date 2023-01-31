@@ -73,11 +73,18 @@ class FirebaseDatabase {
             case 'GET':
                 if (url === '/movies') {
                     const snapshot = await this.db.collection(this.collectionName).get();
-                    response = snapshot.docs.map(doc => doc.data());
+                    // add the id of each document to the data
+                    response = snapshot.docs.map(doc => {
+                        const data = doc.data();
+                        data.id = doc.id;
+                        return data;
+                    });
                 } else {
                     const id = url.split('/')[2];
                     const doc = await this.db.collection(this.collectionName).doc(id).get();
+                    // add the id of the document to the data
                     response = doc.data();
+                    response.id = doc.id;
                 }
                 break;
             case 'POST':
