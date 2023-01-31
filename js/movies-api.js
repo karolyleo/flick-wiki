@@ -25,14 +25,19 @@ const getMovies = async () => {
 }
 
 // And here is a function that will add a new movie:
-const addMovie = async (data) => {
+const addMovie = async (movie) => {
+    // "movie" is an object that contains the movie data
+    // Example: {title: "The Matrix", year: 1999, rating: 5}
+    // You do NOT need to add an id to the movie object.
+    // After the movie is added to the database, the database will
+    // automatically add an id to the movie object and return it.
     const url = '/movies';
     const options = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(movie),
     };
     let response = await db.fetch(url, options);
     return await response.json();
