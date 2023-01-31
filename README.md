@@ -20,7 +20,8 @@ let db = new FirebaseDatabase({
     team: "YOUR_TEAM_NAME" // Replace this with your team name
 });
 ```
-4. Open the `index.html` file in your browser to run the app.
+4. Open the `index.html` file in your browser.
+5. Your team is now ready to start working on the project! Happy coding!
 ## Project Files
 
 The project has the following files:
