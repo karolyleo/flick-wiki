@@ -40,6 +40,9 @@ let db = new FirebaseDatabase({
 12. Open the `index.html` file in your browser.
 13. Your team is now ready to start working on the project! Happy coding!
 
+> **NOTE**
+> Whenever `index.html` is opened in the browser, the configuration will check to see if a table for your team name has any data. If it does not, it will create a table for your team name and populate it with a few example movies. This is done so that you can start working on the project without having to add any data to the database. **This means that if you ever remove all of the data from your table, the configuration will add the example movies again the next time you open `index.html` in the browser.**
+
 ## Project Files
 
 The project has the following files:
