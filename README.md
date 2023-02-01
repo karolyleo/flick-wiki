@@ -27,7 +27,7 @@ git init
 git add .
 git commit -m "Initial commit"
 git branch -M main
-git remote add origin [PASTE_YOUR_REPOSITORY_CLONE_URL_HERE]
+git remote add origin PASTE_YOUR_REPOSITORY_CLONE_URL_HERE
 git push -u origin main
 ```
 10. Paste your `keys.js` file (provided by your instructor) into the `js` directory. (This file is ignored by git)
