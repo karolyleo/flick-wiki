@@ -71,33 +71,96 @@ Example:
 db.fetch(url, options);
 ```
 
-This lets you make requests to the database using the same syntax as you would use to make requests to a normal API. Here's an example of a function that gets all movies from the database:
+This lets you make requests to the database using the same syntax as you would use to make requests to a normal API. 
 
+Here's an example of a function that **gets all movies** from the database:
 ```js
 const getMovies = async () => {
-    const url = '/movies';
-    const options = {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    };
-    let response = await db.fetch(url, options);
-    return await response.json();
+    try {
+        const url = '/movies';
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        };
+        let response = await db.fetch(url, options);
+        return await response.json();
+    } catch (e) {
+        console.error(e);
+    }
 }
 ```
-And an example of a function that adds a movie to the database:
+An example of a function that **gets a specific movie** in the database:
 ```js
-const addMovie = async (data) => {
-    const url = '/movies';
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-    };
-    let response = await db.fetch(url, options);
-    return await response.json();
+const getMovie = async (movie) => {
+    try {
+        const url = `/movies/${movie.id}`;
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        };
+        let response = await db.fetch(url, options);
+        return await response.json();
+    } catch (e) {
+        console.error(e);
+    }
+}
+```
+```js
+const addMovie = async (movie) => {
+    try {
+        const url = '/movies';
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(movie),
+        };
+        let response = await db.fetch(url, options);
+        return await response.json();
+    } catch (e) {
+        console.error(e);
+    }
+}
+```
+An example of a function that **updates a movie** in the database:
+```js
+const updateMovie = async (movie) => {
+    try {
+        const url = `/movies/${movie.id}`;
+        const options = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(movie),
+        };
+        let response = await db.fetch(url, options);
+        return await response.json();
+    } catch (e) {
+        console.error(e);
+    }
+}
+```
+An example of a function that **deletes a movie** in the database:
+```js
+const deleteMovie = async (movie) => {
+    try {
+        const url = `/movies/${movie.id}`;
+        const options = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        };
+        let response = await db.fetch(url, options);
+        return await response.json();
+    } catch (e) {
+        console.error(e);
+    }
 }
 ```
