@@ -12,16 +12,34 @@ This is a project for Codeup students to gain further understanding of the JavaS
 
 ## Getting Started
 
-1. Fork and clone this repository.
-2. Paste your `keys.js` file (provided by your instructor) into the `js` directory. (This file is ignored by git)
-3. Change the `YOUR_TEAM_NAME` in the `movies-api.js` file to your team name.
+1. Create an organization on GitHub for your team.
+2. Add your team members as owners to the organization.
+3. Create a new repository in your organization called `movies-app`. **Do not initialize it with a README**.
+4. Copy the SSH clone URL for the repository created and save it for later.
+5. Download **this repository** as a zip file.
+[![Download Repo](images/download-repo.png)](images/download-repo.png)
+6. Create a local folder for your project and name it `movies-app`
+7. Open the zip file and copy the contents of the `movies-app` folder into your local `movies-app` folder.
+8. Open your local `movies-app` folder in your code editor.
+9. Open the terminal and run the following commands:
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin [PASTE_YOUR_REPOSITORY_CLONE_URL_HERE]
+git push -u origin main
+```
+10. Paste your `keys.js` file (provided by your instructor) into the `js` directory. (This file is ignored by git)
+11. Change the `YOUR_TEAM_NAME` in the `movies-api.js` file to your team name.
 ```js 
 let db = new FirebaseDatabase({
     team: "YOUR_TEAM_NAME" // Replace this with your team name
 });
 ```
-4. Open the `index.html` file in your browser.
-5. Your team is now ready to start working on the project! Happy coding!
+12. Open the `index.html` file in your browser.
+13. Your team is now ready to start working on the project! Happy coding!
+
 ## Project Files
 
 The project has the following files:
