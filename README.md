@@ -138,7 +138,7 @@ An example of using the `addMovie` function.
 // This is an example object that you would pass to the function
 // NOTE: This is a NoSQL database, so the object can have any properties you want
 let movieObject = {   
-    id: '34kjkj34g5k5jgkg13133'
+    id: '34kjkj34g5k5jgkg13133',
     title: 'The Shawshank Redemption',
     year: 1994,
     director: 'Frank Darabont',
