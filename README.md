@@ -133,6 +133,23 @@ const addMovie = async (movie) => {
     }
 }
 ```
+An example of using the `addMovie` function.
+```js
+// This is an example object that you would pass to the function
+// NOTE: This is a NoSQL database, so the object can have any properties you want
+let movieObject = {   
+    id: '34kjkj34g5k5jgkg13133'
+    title: 'The Shawshank Redemption',
+    year: 1994,
+    director: 'Frank Darabont',
+    rating: 9.3,
+    runtime: 142,
+    genre: 'Drama',
+    actors: 'Tim Robbins, Morgan Freeman, Bob Gunton, William Sadler',
+}
+// Call the function
+addMovie(movieObject);
+```
 An example of a function that **updates a movie** in the database:
 ```js
 const updateMovie = async (movie) => {

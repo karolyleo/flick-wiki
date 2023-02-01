@@ -23,7 +23,7 @@ class FirebaseDatabase {
         if (collections.length === 0) {
             // create an array of example movies
             const movies = [
-                {
+                {   
                     title: 'The Shawshank Redemption',
                     year: 1994,
                     director: 'Frank Darabont',
