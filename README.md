@@ -30,7 +30,12 @@ git branch -M main
 git remote add origin PASTE_YOUR_REPOSITORY_CLONE_URL_HERE
 git push -u origin main
 ```
-10. Paste your `keys.js` file (provided by your instructor) into the `js` directory. (This file is ignored by git)
+10. Paste the `keys.js` file (provided by your instructor) into the `js` directory. (This file is ignored by git)
+```js
+const keys = {
+    firebase: 'TOKEN_GOES_HERE'
+}
+```
 11. Change the `YOUR_TEAM_NAME` in the `movies-api.js` file to your team name.
 ```js 
 let db = new FirebaseDatabase({
