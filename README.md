@@ -109,6 +109,7 @@ const getMovie = async (movie) => {
     }
 }
 ```
+An example of a function that **adds a movie** in the database:
 ```js
 const addMovie = async (movie) => {
     try {
