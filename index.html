@@ -8,9 +8,9 @@
   
   <link rel="stylesheet" href="movies-app.css">
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <nav class="navbar sticky navbar-expand-lg navbar-light bg-info">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Team B</a>
+        <a class="navbar-brand" >Team B</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -27,7 +27,25 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" >Movie List</a>
             </li>
-            
+            <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  >Filter Genre</a>
+                
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Crime</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Drama</a>
+                  </li>
+                </ul>
+                </li>
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -65,13 +83,33 @@
     </nav>
     <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <h5 class="card-title">Movie:</h5>
+          <h6 class="card-subtitle mb-2 text-muted ">Director:</h6>
+          <p class="card-text">movie shit here</p>
           <a href="#" class="card-link">Card link</a>
           <a href="#" class="card-link">Another link</a>
         </div>
       </div>
+      <div class="card" style="width: 18rem; background: rgb(74, 161, 211); ">
+        <div class="card-body">
+          <h5 class="card-title">Movie:</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Director:</h6>
+          <p class="card-text">movie shit here</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Movie:</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Director:</h6>
+          <p class="card-text">movie shit here</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+
+
 
     <!-- The core Firebase JS SDK and Databse library -->
     <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
