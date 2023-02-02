@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  
+    <link rel="stylesheet" href="movies-app.css">
+
+</head>
+<body>
+<nav class="navbar sticky-top navbar-dark mb-0" style="background-color: #020203;">
+    <h4 class="text-dark "><i class="fas fa-film"></i></h4>
+    <a class="text-dark" href="#">Home</a>
+    <a class="text-dark" href="#">TV Shows & Movies</a>
+    <a class="text-dark" href="#">New & Popular</a>
+    <a class="text-dark" href="#">My List <i class="fas fa-list"></i></a>
+    <!-- <a class=" text-light" href="#"><i class="fas "></i><i class="far fa-user-circle"></i></a> -->
+</nav>
+<hr>
+
+<!-- Showing  movies-->
+<div id="container" class=" row d-flex"></div>
+
+
+<!--Editing menu-->
+<div class="rightSide d-flex row">
+    <div class="">
+        <button id="showEdit" class="btn btn-outline-secondary">Edit</button>
+        <select  id="selectMenu" class="hidden1 select"></select>
+        <div class="hidden1 editMovie" id="editMovie">
+            <label for="newTitle">Change Title </label>
+            <input type="text" id="newTitle">
+            <br>
+            <label for="newGenre">Change Genre </label>
+            <input type="text" id="newGenre">
+            <br>
+            <label for="newRating">Change Rating </label>
+            <input type="text" id="newRating">
+            <br>
+            <label for="newDirector">Change Director </label>
+            <input type="text" id="newDirector">
+            <br>
+            <div class="textBox">
+                <label for="newPlot">Change plot </label>
+                <textarea id="newPlot" rows="3" cols="30"></textarea>
+            </div>
+
+            <br>
+            <button id="changeMovie" class="btn btn-outline-secondary">Update Movie</button>
+        </div>
+    </div>
+    <!--Delete menu-->
+    <div class="">
+        <button class="remove-hidden btn btn-outline-secondary">Delete a movie</button>
+        <div class="deleteGroup">
+            <select id="selectMenu2" class="hidden1 select">
+                <option>Delete a movie</option>
+            </select>
+            <button id="delete-movie" class="hidden1 btn btn-danger">Delete movie</button>
+        </div>
+    </div>
+
+    <!--Post menu-->
+    <div class="">
+        <button id="post-id" class="btn btn-outline-secondary">Post Movie</button>
+        <div class="hidden1 editMovie" id="postMovie">
+            <label for="title">Title </label>
+            <input type="text" id="title">
+            <br>
+            <label for="genre">Genre </label>
+            <input type="text" id="genre">
+            <br>
+            <label for="rating">Rating </label>
+            <input type="text" id="rating">
+            <br>
+            <label for="director">Director </label>
+            <input type="text" id="director">
+            <br>
+            <div class="textBox">
+                <label for="plot">Plot </label>
+                <textarea id="plot" rows="5" cols="40"></textarea>
+            </div>
+
+            <br>
+            <button id="newMovie" class="btn button-outline-secondary">Add Movie</button>
+        </div>
+    </div>
+</div>
+<footer>
+   
+</footer>
+
+<!------------->
+<script src="movies-app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> 
+
+<!--bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<!--end of bootstrap-->
+</body>
+</html>
