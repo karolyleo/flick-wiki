@@ -2,7 +2,7 @@
 // Configuring Firebase is more involved than what is covered in this lesson,
 // so we have provided a class that will handle the configuration for you.
 let db = new FirebaseDatabase({
-    team: "YOUR_TEAM_NAME" // Replace this with your team name
+    team: "teamB" // Replace this with your team name
 });
 
 // You will use the "db" object to make requests to the database very similarly to how you
