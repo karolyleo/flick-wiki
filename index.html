@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="movies-app.css">
   <body>
 <!--  navbar-->
+
     <nav class="navbar sticky navbar-expand-lg navbar-light bg-info">
       <div class="container-fluid">
         <a class="navbar-brand" >Team B</a>
@@ -16,9 +17,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" >Movie List</a>
-            </li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" >Movie List</a></li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="genre" role="button" data-bs-toggle="dropdown" aria-expanded="false">Genre</a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -49,18 +48,24 @@
       </div>
     </nav>
 <!--end of navbar-->
-    <div class ="container-fluid"></div>
-    
-    <div class="card" style="width: 25rem;">
-        <div class="card-body ">
-          <h5 class="card-title">Movie:</h5>
-          <h6 class="card-subtitle mb-2 text-muted ">Director:</h6>
-          <p class="card-text">movie shit here</p>
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
+
+<!--Movie Cards-->
+    <div class ="container-fluid m-5 d-flex align-content-center justify-content-center d-flex-row">
+<!--      first test movie card-->
+      <div class="card m-1">
+        <div class="card-header">
+            <h5 class="card-title">The Godfather</h5>1972
         </div>
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-muted ">Francis Ford Coppola</h6>
+          <p class="card-text">Marlon Brando, Al Pacino, James Caan, Diane Keaton</p>
+        </div>
+          <div class="card-footer">
+              <p>Rating: 9.2</p>
+          </div>
       </div>
-      <div class="card" style="width: 25rem; background: rgb(137, 187, 215); ">
+
+      <div class="card m-1">
         <div class="card-body">
           <h5 class="card-title">Movie:</h5>
           <h6 class="card-subtitle mb-2 text-muted">Director:</h6>
@@ -69,7 +74,8 @@
           <a href="#" class="card-link">Another link</a>
         </div>
       </div>
-      <div class="card" style="width: 25rem; background: rgb(137, 187, 215)">
+      <!--      first test movie card-->
+      <div class="card m-1">
         <div class="card-body">
           <h5 class="card-title">Movie:</h5>
           <h6 class="card-subtitle mb-2 text-muted">Director:</h6>
@@ -78,8 +84,7 @@
           <a href="#" class="card-link">Another link</a>
         </div>
       </div>
-
-
+    </div>
 
     <!-- The core Firebase JS SDK and Databse library -->
     <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
