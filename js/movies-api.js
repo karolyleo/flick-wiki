@@ -45,3 +45,13 @@ const addMovie = async (movie) => {
 
 // Here is where you will create your own functions to further interact with the database.
 // HAPPY CODING!!!
+async function getMovieInfo(movieName) {
+    const apiKey = keys.OMDb;
+    const response = await fetch(
+        `http://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(
+            movieName
+        )}`
+    );
+    const data = await response.json();
+    return data;
+}

@@ -49,7 +49,49 @@ class FirebaseDatabase {
                     runtime: 202,
                     genre: 'Crime, Drama',
                     actors: 'Al Pacino, Robert De Niro, Robert Duvall, Diane Keaton',
-                }
+                },
+                {
+                    title: 'Ted',
+                    year: 2012,
+                    director: 'Seth MacFarlane',
+                    rating: 6.9,
+                    runtime: 106,
+                    genre: 'Comedy',
+                    actors: 'Mark Wahlberg, Mila Kunis, Seth MacFarlane',
+                },
+            /**
+                {
+                    Actors: "Mark Wahlberg, Mila Kunis, Seth MacFarlane",
+                    Awards: "Nominated for 1 Oscar. 13 wins & 28 nominations total",
+                    BoxOffice: "$218,815,487",
+                    Country: "United States",
+                    DVD: "11 Dec 2012",
+                    Director: "Seth MacFarlane",
+                    Genre: "Comedy",
+                    Language: "English, Japanese, Ukrainian",
+                    Metascore: "62",
+                    Plot: "John Bennett, a man whose childhood wish of bringing his teddy bear to life came true, now must decide between keeping the relationship with the bear, Ted or his girlfriend, Lori.",
+                    Poster: "https://m.media-amazon.com/images/M/MV5BMTQ1OTU0ODcxMV5BMl5BanBnXkFtZTcwOTMxNTUwOA@@._V1_SX300.jpg",
+                    Production: "N/A",
+                    Rated: "R",
+                    Ratings: [
+                            {Source: 'Internet Movie Database', Value: '6.9/10'},
+                            {Source: 'Rotten Tomatoes', Value: '69%'},
+                            {Source: 'Metacritic', Value: '62/100'}
+                         ],
+                    Released:"29 Jun 2012",
+                    Response:"True",
+                    Runtime:"106 min",
+                    Title:"Ted",
+                    Type:"movie",
+                    Website:"N/A",
+                    Writer:"Seth MacFarlane, Alec Sulkin, Wellesley Wild",
+                    Year:"2012",
+                    imdbID:"tt1637725",
+                    imdbRating:"6.9",
+                    imdbVotes:"620,990"
+        }
+            */
             ];
             // add the example movies to the collection
             movies.forEach(movie => {
