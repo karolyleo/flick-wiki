@@ -50,7 +50,7 @@ const addMovie = async (movie) => {
 
 $(document).ready(function(){
     let movieArray = [];
-    let url = "https://satisfying-giddy-hedge.glitch.me/";
+    let url = "";
     const moviePosters = () => {
         let loader = `<div class="loading"><img src="img/loading.gif"></div>`;
         $("#container").html(loader);
