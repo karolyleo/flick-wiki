@@ -13,35 +13,23 @@
 <!--  navbar-->
     <nav class="navbar sticky navbar-expand-lg navbar-light bg-info">
       <div class="container-fluid ">
-        <a class="navbar-brand" >Team B</a>
+        <a class="navbar-brand" id="showAllMovies">Team B</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link active" aria-current="page" >Movie List</a></li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="genre" role="button" data-bs-toggle="dropdown" aria-expanded="false">Genre</a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item">Action</a></li>
-                  <li><a class="dropdown-item">Crime</a></li>
-                  <li><hr class="dropdown-divider"/></li>
-                  <li><a class="dropdown-item">Drama</a></li>
-                  <li><a class="dropdown-item" >Action</a></li>
-                  <li><a class="dropdown-item">Crime</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li>
-                    <a class="dropdown-item">Drama</a>
-                  </li>
-                </ul>
-            </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" id="addMovie" role="button" data-bs-toggle="dropdown" aria-expanded="false">Add</a>
+              <a class="nav-link dropdown-toggle" id="addMovie" role="button" data-bs-toggle="dropdown" aria-expanded="false">Add Movie</a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item">Action</a></li>
-                <li><a class="dropdown-item">Another action</a></li>
+                <li><form class="d-flex flex-column">
+                    <input class="form-control me-2" type="search" id="potentialMovie" placeholder="Search" aria-label="Search"/>
+                    <button class="btn btn-outline-success" type="submit" id="potentialMovieSearch">Search</button>
+                </form></li>
                 <li><hr class="dropdown-divider"/></li>
-                <li><a class="dropdown-item">Something else here</a></li>
+                <li><a class="dropdown-item" href="http://www.omdbapi.com/">Thanks OpenMovieDatabase</a>
+                </li>
               </ul>
             </li>
             
@@ -58,7 +46,7 @@
 <!--end of navbar-->
     
 <!--Movie Cards-->
-    <div id="movieList" class ="container-fluid m-5 d-flex align-content-center justify-content-center d-flex-row">
+    <div id="movieList" class ="container m-0 d-flex">
 <!--      first test movie card-->
         <div class="container m-1">
             <div class="flip-card mx-auto">
@@ -71,9 +59,10 @@
                         <h6 class="text-center">Director: Francis Ford Coppola</h6>
                         <p class="text-center">Actors: Marlon Brando, Al Pacino, James Caan, Diane Keaton</p>
                         <p>Rating: 9.2</p>
-                        <p>Genre: Crime, Drama</p>
                         <p>RunTime: 175</p>
                         <p>Year: 1972</p>
+                        <p>Genre: Crime, Drama</p>
+                        <button class="btn btn-outline-danger deleter">Delete</button>
                     </div>
                 </div>
             </div>
