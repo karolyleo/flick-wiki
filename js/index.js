@@ -3,10 +3,15 @@
     // Before you can use the database, you need to configure the "db" object 
     // with your team name in the "js/movies-api.js" file.
     
-    // populateMovies()
+    updateList();
 })();
 
-let singledMovie = '';
+let singledMovie = '', allMovie =  0, helper = 0;
+
+document.getElementById("movieFilteredSearch").addEventListener("click", async  (e)=> {
+    e.preventDefault();
+    updateMovies();
+});
 
 //User Checks their searched movie
 document.getElementById("potentialMovieSearch").addEventListener("click", async  (e)=>{
@@ -19,35 +24,33 @@ document.getElementById("potentialMovieSearch").addEventListener("click", async 
     </div>`;
 
     document.getElementById('movieList').innerHTML = htmlHelper;
-    console.log(potentialMovie);
 });
 
 //buttons that a added to the DOM
 document.addEventListener('DOMContentLoaded', function() {
+    //add to list
     document.getElementById('movieList').addEventListener('click', async function(e) {
         if (e.target.id === 'firebaseMoviePush') {
-            console.log(singledMovie);
             await addMovie(singledMovie);
-            await populateMovies();
+            wait(3000).then((time) => console.log(`You'll see this after ${time / 1000} seconds`));
+            await updateList();
         }
     });
-    document.addEventListener('click', function(event) {
+    //delete button
+    document.addEventListener('click', async function(event) {
         if (event.target.matches('button.deleter')) {
-            console.log(event.target.parentElement.parentElement.parentElement.parentElement.IDValue);
+            helper = event.target.parentElement.parentElement.parentElement.parentElement
+            let id = helper.id.split('-');
+            helper = Number(id[0]);
+            deleteMovie(allMovie[helper]);
+            updateList();
         }
     });
 
 });
 
-
-
-// document.getElementById('firebaseMoviePush').addEventListener('click', ()=>{
-//     console.log('this works')
-// })
-
 //TeamB Logo populates all Movies
-document.getElementById("showAllMovies").addEventListener("click", populateMovies);
-
+document.getElementById("showAllMovies").addEventListener("click", updateList);
 
 //Find movie info from OM-Data base
 async function getMovieInfo(movieName) {
@@ -59,7 +62,6 @@ async function getMovieInfo(movieName) {
     );
     const data = await response.json();
     const { Actors, Director, Genre, Ratings, Runtime, Title, Year, Poster } = data
-    // console.log(data)
     let result = {
         title: Title,
         year: Number(Year),
@@ -76,7 +78,6 @@ async function getMovieInfo(movieName) {
 //HTML format:
 function movieCards(movie, index) {
     const {title, year, director, rating, runtime, genre, actors, Poster} = movie;
-    console.log(index)
     let HTML = `
     <div id="${index}-Movie" class="p-0 m-0">
         <div class="flip-card mx-auto">
@@ -100,17 +101,39 @@ function movieCards(movie, index) {
     return HTML
 }
 
-async function populateMovies(){
-    let tempMovieList = await getMovies();
-    // console.log(tempMovieList[0]);
+//This is to limit the amount of times firebase is hit
+async function updateList(){
+    allMovie = await getMovies();
+    renderMovies(allMovie);
+}
+
+//Shows movies in the DOM
+function renderMovies(movies = allMovie){
     let htmlHelper = '<div class="d-flex flex-wrap">';
-    tempMovieList.forEach((movie, index)=>{htmlHelper+=movieCards(movie, index)});
+    movies.forEach((movie, index)=>{htmlHelper+=movieCards(movie, index)});
     htmlHelper+='</div>'
     document.getElementById('movieList').innerHTML = htmlHelper;
 }
 
-//smaller helper functions
-//ID format
-function formatString(str) {
-    return str.toLowerCase().replace(/\s+/g, '-');
+//Little loader
+function wait(milliseconds) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(milliseconds);
+        }, milliseconds);
+    });
 }
+
+function updateMovies(e) {
+    // e.preventDefault();
+    let filteredMovies = [];
+    let movieName = document.getElementById('movieFiltered').value;
+    // if(movieName.value.length>0){
+    filteredMovies = allMovie.filter(movie => {
+        return (movie.title.toLowerCase().startsWith(movieName.toLowerCase()));
+    });
+
+    console.log(movieName, filteredMovies)
+    renderMovies(filteredMovies);
+}//this filters the list to show only what is desired.
+
