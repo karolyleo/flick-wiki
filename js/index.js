@@ -38,7 +38,7 @@ function movieCards(movie) {
         <div class="flip-card mx-auto">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
-                    <img src="${Poster}" alt="Avatar" class="img-fluid">
+                    <img src="${Poster}" alt="Avatar" class="img">
                 </div>
                 <div class="flip-card-back">
                     <h2 class="text-center">${title}</h2>
