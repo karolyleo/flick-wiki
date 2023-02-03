@@ -31,6 +31,7 @@ class FirebaseDatabase {
                     runtime: 142,
                     genre: 'Drama',
                     actors: 'Tim Robbins, Morgan Freeman, Bob Gunton, William Sadler',
+                    Poster: "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
                 },
                 {
                     title: 'The Godfather',
@@ -40,6 +41,7 @@ class FirebaseDatabase {
                     runtime: 175,
                     genre: 'Crime, Drama',
                     actors: 'Marlon Brando, Al Pacino, James Caan, Diane Keaton',
+                    Poster: "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
                 },
                 {
                     title: 'The Godfather: Part II',
@@ -49,6 +51,7 @@ class FirebaseDatabase {
                     runtime: 202,
                     genre: 'Crime, Drama',
                     actors: 'Al Pacino, Robert De Niro, Robert Duvall, Diane Keaton',
+                    Poster: 'https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg',
                 },
                 {
                     title: 'Ted',
@@ -58,16 +61,17 @@ class FirebaseDatabase {
                     runtime: 106,
                     genre: 'Comedy',
                     actors: 'Mark Wahlberg, Mila Kunis, Seth MacFarlane',
+                    Poster: "https://m.media-amazon.com/images/M/MV5BMTQ1OTU0ODcxMV5BMl5BanBnXkFtZTcwOTMxNTUwOA@@._V1_SX300.jpg",
                 },
             /**
                 {
-                    Actors: "Mark Wahlberg, Mila Kunis, Seth MacFarlane",
+         7          Actors: "Mark Wahlberg, Mila Kunis, Seth MacFarlane",
                     Awards: "Nominated for 1 Oscar. 13 wins & 28 nominations total",
                     BoxOffice: "$218,815,487",
                     Country: "United States",
                     DVD: "11 Dec 2012",
-                    Director: "Seth MacFarlane",
-                    Genre: "Comedy",
+           3        Director: "Seth MacFarlane",
+          6         Genre: "Comedy",
                     Language: "English, Japanese, Ukrainian",
                     Metascore: "62",
                     Plot: "John Bennett, a man whose childhood wish of bringing his teddy bear to life came true, now must decide between keeping the relationship with the bear, Ted or his girlfriend, Lori.",
@@ -75,18 +79,18 @@ class FirebaseDatabase {
                     Production: "N/A",
                     Rated: "R",
                     Ratings: [
-                            {Source: 'Internet Movie Database', Value: '6.9/10'},
+       4                    {Source: 'Internet Movie Database', Value: '6.9/10'},
                             {Source: 'Rotten Tomatoes', Value: '69%'},
                             {Source: 'Metacritic', Value: '62/100'}
                          ],
                     Released:"29 Jun 2012",
                     Response:"True",
-                    Runtime:"106 min",
-                    Title:"Ted",
+       5            Runtime:"106 min",
+         1          Title:"Ted",
                     Type:"movie",
                     Website:"N/A",
                     Writer:"Seth MacFarlane, Alec Sulkin, Wellesley Wild",
-                    Year:"2012",
+        2           Year:"2012",
                     imdbID:"tt1637725",
                     imdbRating:"6.9",
                     imdbVotes:"620,990"

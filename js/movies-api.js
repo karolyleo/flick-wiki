@@ -31,27 +31,53 @@ const addMovie = async (movie) => {
     // You do NOT need to add an id to the movie object.
     // After the movie is added to the database, the database will
     // automatically add an id to the movie object and return it.
-    const url = '/movies';
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(movie),
-    };
-    let response = await db.fetch(url, options);
-    return await response.json();
+    try {
+        const url = '/movies';
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(movie),
+        };
+        let response = await db.fetch(url, options);
+        return await response.json();
+    } catch (e) {
+        console.error(e);
+    }
 }
 
 // Here is where you will create your own functions to further interact with the database.
 // HAPPY CODING!!!
-async function getMovieInfo(movieName) {
-    const apiKey = keys.OMDb;
-    const response = await fetch(
-        `http://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(
-            movieName
-        )}`
-    );
-    const data = await response.json();
-    return data;
+const deleteMovie = async (movie) => {
+    try {
+        const url = `/movies/${movie.id}`;
+        const options = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        };
+        let response = await db.fetch(url, options);
+        return await response.json();
+    } catch (e) {
+        console.error(e);
+    }
+}
+
+const updateMovie = async (movie) => {
+    try {
+        const url = `/movies/${movie.id}`;
+        const options = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(movie),
+        };
+        let response = await db.fetch(url, options);
+        return await response.json();
+    } catch (e) {
+        console.error(e);
+    }
 }

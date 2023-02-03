@@ -58,43 +58,28 @@
 <!--end of navbar-->
     
 <!--Movie Cards-->
-    <div class ="container-fluid m-5 d-flex align-content-center justify-content-center d-flex-row">
+    <div id="movieList" class ="container-fluid m-5 d-flex align-content-center justify-content-center d-flex-row">
 <!--      first test movie card-->
-      <div class="card m-1">
-        <div class="card-header">
-            <h5 class="card-title">The Godfather</h5>1972
+        <div class="container m-1">
+            <div class="flip-card mx-auto">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg" alt="Avatar" class="img-fluid">
+                    </div>
+                    <div class="flip-card-back">
+                        <h2 class="text-center">The Godfather</h2>
+                        <h6 class="text-center">Director: Francis Ford Coppola</h6>
+                        <p class="text-center">Actors: Marlon Brando, Al Pacino, James Caan, Diane Keaton</p>
+                        <p>Rating: 9.2</p>
+                        <p>Genre: Crime, Drama</p>
+                        <p>RunTime: 175</p>
+                        <p>Year: 1972</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card-body">
-          <h6 class="card-subtitle mb-2 text-muted ">Francis Ford Coppola</h6>
-          <p class="card-text">Marlon Brando, Al Pacino, James Caan, Diane Keaton</p>
-        </div>
-          <div class="card-footer">
-              <p>Rating: 9.2</p>
-              <p>Genre: Crime, Drama</p>
-              <p> RunTime: 175</p>
-              <p>Year: 1972</p>
-        </div>
-      </div>
 
-      <div class="card m-1" >
-        <img src="https://m.media-amazon.com/images/M/MV5BMTQ1OTU0ODcxMV5BMl5BanBnXkFtZTcwOTMxNTUwOA@@._V1_SX300.jpg" style="width: 200px; height: 300px;">
-      </div>
-      <!--      first test movie card-->
-      <div class="card m-1">
-        <div class="card-body">
-          <h5 class="card-title">Movie:</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Director:</h6>
-          <p class="card-text">movie shit here</p>
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="container my-5">
-        <h1 class="text-center">Card Flip with Text</h1>
-        <h3 class="text-center">Hover over the image below:</h3>
-    
+      <div class="container m-1">
         <div class="flip-card mx-auto">
           <div class="flip-card-inner">
             <div class="flip-card-front">
@@ -107,7 +92,11 @@
             </div>
           </div>
         </div>
+
       </div>
+<!--        end of movie list container-->
+    </div>
+
     <!-- The core Firebase JS SDK and Databse library -->
     <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-firestore.js"></script>
