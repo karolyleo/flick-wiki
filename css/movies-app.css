@@ -3,6 +3,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+a {
+    cursor: pointer;
+}
+
 img{
   height: 220px !important;
     width: 150px !important;

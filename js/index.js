@@ -4,16 +4,17 @@
     // with your team name in the "js/movies-api.js" file.
     
     updateList();
-})();
 
+//helper variables
 let singledMovie = '', allMovie =  0, helper = 0;
 
+//When enter or submit is pressed, for Movie Search
 document.getElementById("movieFilteredSearch").addEventListener("click", async  (e)=> {
     e.preventDefault();
     updateMovies();
 });
 
-//User Checks their searched movie
+//User Checks their searched new Movie
 document.getElementById("potentialMovieSearch").addEventListener("click", async  (e)=>{
     e.preventDefault();
     singledMovie = await getMovieInfo(document.getElementById('potentialMovie').value);
@@ -32,18 +33,48 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('movieList').addEventListener('click', async function(e) {
         if (e.target.id === 'firebaseMoviePush') {
             await addMovie(singledMovie);
-            wait(3000).then((time) => console.log(`You'll see this after ${time / 1000} seconds`));
+            wait(3000);
             await updateList();
         }
     });
     //delete button
     document.addEventListener('click', async function(event) {
         if (event.target.matches('button.deleter')) {
-            helper = event.target.parentElement.parentElement.parentElement.parentElement
+            helper = event.target.parentElement.parentElement.parentElement.parentElement.parentElement
             let id = helper.id.split('-');
             helper = Number(id[0]);
             deleteMovie(allMovie[helper]);
             updateList();
+        }
+    });
+    //edit button
+    document.addEventListener('click', async function(event) {
+        if (event.target.matches('button.editor')) {
+            helper = event.target.parentElement.parentElement.parentElement.parentElement.parentElement
+            let id = helper.id.split('-');
+            helper = Number(id[0]);
+            editMovie(helper);
+        }
+    });
+
+    //update button is pressed
+    document.addEventListener('click', async function(event) {
+        if (event.target.matches('button.updater')) {
+            event.preventDefault(); //stops from refreshing
+
+            const id = document.querySelector("p").id;
+            const Poster = document.querySelector("img").src;
+            let title = document.getElementById("title").value || document.getElementById("title").placeholder;
+            let year = document.getElementById("year").value || document.getElementById("year").placeholder;
+            let director = document.getElementById("director").value || document.getElementById("director").placeholder;
+            let rating = document.getElementById("rating").value || document.getElementById("rating").placeholder;
+            let runtime = document.getElementById("runtime").value || document.getElementById("runtime").placeholder;
+            let genre = document.getElementById("genre").value || document.getElementById("genre").placeholder;
+            let actors = document.getElementById("actors").value || document.getElementById("actors").placeholder;
+
+            let result = { id, Poster, title, year, director, rating, runtime, genre, actors };
+            await updateMovie(result);
+            await updateList();
         }
     });
 
@@ -93,12 +124,56 @@ function movieCards(movie, index) {
                     <p class="m-0">RunTime: ${runtime}</p>
                     <p class="m-0">Year: ${year}</p>
                     <p class="${genre} m-0"><b>Genre: ${genre}</b></p>
+                    <div>
                     <button class="btn btn-outline-danger deleter">Delete</button>
+                    <button class="btn btn-outline-white editor">Edit</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>`;
     return HTML
+}
+
+//HTML for edit page:
+function cardEditor(movie){
+    const {title, year, director, rating, runtime, genre, actors, Poster, id} = movie;
+
+    return `
+<form class="bg-white m-5 p-3">
+  <div>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" placeholder="${title}">
+  </div>
+  <div>
+    <label for="year">Year:</label>
+    <input type="number" id="year" name="year" placeholder="${year}">
+  </div>
+  <div>
+    <label for="director">Director:</label>
+    <input type="text" id="director" name="director" placeholder="${director}">
+  </div>
+  <div>
+    <label for="rating">Rating:</label>
+    <input type="number" id="rating" name="rating" placeholder="${rating}">
+  </div>
+  <div>
+    <label for="runtime">Runtime:</label>
+    <input type="text" id="runtime" name="runtime" placeholder="${runtime}">
+  </div>
+  <div>
+    <label for="genre">Genre:</label>
+    <input type="text" id="genre" name="genre" placeholder="${genre}">
+  </div>
+  <div>
+    <label for="actors">Actors:</label>
+    <input type="text" id="actors" name="actors" placeholder="${actors}">
+  </div>
+  <button class="btn btn-primary updater m-3">Update</button>
+  <p id="${id}"> id : ${id}</p>
+</form> 
+<img src="${Poster}" class="m-5 w-25 h-50">
+`;
 }
 
 //This is to limit the amount of times firebase is hit
@@ -130,10 +205,14 @@ function updateMovies(e) {
     let movieName = document.getElementById('movieFiltered').value;
     // if(movieName.value.length>0){
     filteredMovies = allMovie.filter(movie => {
-        return (movie.title.toLowerCase().startsWith(movieName.toLowerCase()));
+        return (movie.title.toLowerCase().match(movieName.toLowerCase())); // match() > startWith() since many movies begin with 'The'
     });
 
     console.log(movieName, filteredMovies)
     renderMovies(filteredMovies);
 }//this filters the list to show only what is desired.
 
+function editMovie(index){
+    document.getElementById('movieList').innerHTML = cardEditor(allMovie[index]);
+}
+})();

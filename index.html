@@ -21,10 +21,10 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item dropdown">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" id="addMovie" role="button" data-bs-toggle="dropdown" aria-expanded="false">Add Movie</a>
+              <a class="nav-link dropdown-toggle" id="addMovie" role="button" data-bs-toggle="dropdown" aria-expanded="false">Add New Movie</a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><form class="d-flex flex-column">
-                    <input class="form-control me-2" type="search" id="potentialMovie" placeholder="Search" aria-label="Search"/>
+                    <input class="form-control me-2" type="search" id="potentialMovie" placeholder="New Movie" aria-label="Search"/>
                     <button class="btn btn-outline-success" type="submit" id="potentialMovieSearch">Search</button>
                 </form></li>
                 <li><hr class="dropdown-divider"/></li>
@@ -37,7 +37,7 @@
           <form class="d-flex">
             <input class="form-control me-2" id="movieFiltered" type="search" placeholder="Search" aria-label="Search"/>
             <button id="movieFilteredSearch" class="btn btn-outline-success" type="submit">
-              Search
+              Filter
             </button>
           </form>
         </div>
@@ -46,7 +46,7 @@
 <!--end of navbar-->
     
 <!--Movie Cards-->
-    <div id="movieList" class ="container m-0 d-flex">
+    <div id="movieList" class ="container-fluid m-0 d-flex">
 <!--      first test movie card-->
         <div class="container m-1">
             <div class="flip-card mx-auto">
