@@ -1,12 +1,11 @@
 (async () => {
-    // This is the entry point for your application. Write all of your code here.
-    // Before you can use the database, you need to configure the "db" object 
-    // with your team name in the "js/movies-api.js" file.
-    
+    // This is the entry point for your application. Write all of your code here. Before you can use the database, you need to configure the "db" object with your team name in the "js/movies-api.js" file.
+
+    //This loads the main list from firebase onto the home page
     updateList();
 
 //helper variables
-let singledMovie = '', allMovie =  0, helper = 0;
+let singledMovie = '', allMovie =  0, movieIndex = 0;
 
 //When enter or submit is pressed, for Movie Search
 document.getElementById("movieFilteredSearch").addEventListener("click", async  (e)=> {
@@ -27,7 +26,7 @@ document.getElementById("potentialMovieSearch").addEventListener("click", async 
     document.getElementById('movieList').innerHTML = htmlHelper;
 });
 
-//buttons that a added to the DOM
+//buttons that are added later to the DOM
 document.addEventListener('DOMContentLoaded', function() {
     //add to list
     document.getElementById('movieList').addEventListener('click', async function(e) {
@@ -40,20 +39,21 @@ document.addEventListener('DOMContentLoaded', function() {
     //delete button
     document.addEventListener('click', async function(event) {
         if (event.target.matches('button.deleter')) {
-            helper = event.target.parentElement.parentElement.parentElement.parentElement.parentElement
-            let id = helper.id.split('-');
-            helper = Number(id[0]);
-            deleteMovie(allMovie[helper]);
-            updateList();
+            movieIndex = event.target.parentElement.parentElement.parentElement.parentElement.parentElement
+            let id = movieIndex.id.split('-');
+            movieIndex = Number(id[0]);
+            await deleteMovie(allMovie[movieIndex]);
+            await updateList();
         }
     });
+
     //edit button
     document.addEventListener('click', async function(event) {
         if (event.target.matches('button.editor')) {
-            helper = event.target.parentElement.parentElement.parentElement.parentElement.parentElement
-            let id = helper.id.split('-');
-            helper = Number(id[0]);
-            editMovie(helper);
+            movieIndex = event.target.parentElement.parentElement.parentElement.parentElement.parentElement
+            let id = movieIndex.id.split('-');
+            movieIndex = Number(id[0]);
+            editMovie(movieIndex);
         }
     });
 
@@ -80,8 +80,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
-//TeamB Logo populates all Movies
+//homepage
 document.getElementById("showAllMovies").addEventListener("click", updateList);
+
+//This is to limit the amount of times firebase is hit
+async function updateList(){
+        allMovie = await getMovies();
+        renderMovies(allMovie);
+}
 
 //Find movie info from OM-Data base
 async function getMovieInfo(movieName) {
@@ -91,8 +97,7 @@ async function getMovieInfo(movieName) {
             movieName
         )}`
     );
-    const data = await response.json();
-    const { Actors, Director, Genre, Ratings, Runtime, Title, Year, Poster } = data
+    const { Actors, Director, Genre, Ratings, Runtime, Title, Year, Poster } = await response.json();
     let result = {
         title: Title,
         year: Number(Year),
@@ -106,11 +111,11 @@ async function getMovieInfo(movieName) {
     return result;
 }
 
-//HTML format:
+//HTML individual movie format:
 function movieCards(movie, index) {
     const {title, year, director, rating, runtime, genre, actors, Poster} = movie;
     let HTML = `
-    <div id="${index}-Movie" class="p-0 m-5">
+    <div id="${index}-Movie" class="p-0 m-0">
         <div class="flip-card mx-auto">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
@@ -176,12 +181,6 @@ function cardEditor(movie){
 `;
 }
 
-//This is to limit the amount of times firebase is hit
-async function updateList(){
-    allMovie = await getMovies();
-    renderMovies(allMovie);
-}
-
 //Shows movies in the DOM
 function renderMovies(movies = allMovie){
     let htmlHelper = '<div class="d-flex flex-wrap">';
@@ -199,6 +198,7 @@ function wait(milliseconds) {
     });
 }
 
+//this filters the list to show only what is desired.
 function updateMovies(e) {
     // e.preventDefault();
     let filteredMovies = [];
@@ -207,12 +207,12 @@ function updateMovies(e) {
     filteredMovies = allMovie.filter(movie => {
         return (movie.title.toLowerCase().match(movieName.toLowerCase())); // match() > startWith() since many movies begin with 'The'
     });
-
-    console.log(movieName, filteredMovies)
     renderMovies(filteredMovies);
-}//this filters the list to show only what is desired.
+}
 
+// this populates the html made for the edit page
 function editMovie(index){
     document.getElementById('movieList').innerHTML = cardEditor(allMovie[index]);
 }
+
 })();
