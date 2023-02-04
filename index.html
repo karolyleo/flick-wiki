@@ -1,111 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+    <!---Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/movies-app.css"/>
     <title>Movies App</title>
-  </head>
-  <!---Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/movies-app.css"/>
-  <body class="bg-secondary">
+</head>
+<body class="bg-secondary">
 <!--  navbar-->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-info">
-      <div class="container-fluid ">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-info">
+    <div class="container-fluid ">
         <a class="navbar-brand" id="showAllMovies">Home</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" id="addMovie" role="button" data-bs-toggle="dropdown" aria-expanded="false">Add New Movie</a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><form class="d-flex flex-column">
-                    <input class="form-control me-2" type="search" id="potentialMovie" placeholder="New Movie" aria-label="Search"/>
-                    <button class="btn btn-outline-success" type="submit" id="potentialMovieSearch">Search</button>
-                </form></li>
-                <li><hr class="dropdown-divider"/></li>
-                <li><a class="dropdown-item" href="http://www.omdbapi.com/">Thanks OpenMovieDatabase</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="addMovie" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">Add New Movie</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li>
+                            <form class="d-flex flex-column">
+                                <input class="form-control me-2" type="search" id="potentialMovie"
+                                       placeholder="New Movie" aria-label="Search"/>
+                                <button class="btn btn-outline-success" type="submit" id="potentialMovieSearch">Search
+                                </button>
+                            </form>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider"/>
+                        </li>
+                        <li><a class="dropdown-item" href="http://www.omdbapi.com/">Thanks OpenMovieDatabase</a>
+                        </li>
+                    </ul>
                 </li>
-              </ul>
-            </li>
-            
-          </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" id="movieFiltered" type="search" placeholder="Search" aria-label="Search"/>
-            <button id="movieFilteredSearch" class="btn btn-outline-success" type="submit">
-              Filter
-            </button>
-          </form>
+
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" id="movieFiltered" type="search" placeholder="Search"
+                       aria-label="Search"/>
+                <button id="movieFilteredSearch" class="btn btn-outline-success" type="submit">
+                    Filter
+                </button>
+            </form>
         </div>
-      </div>
-    </nav>
-<!--end of navbar-->
+    </div>
+</nav>
+
+<!--Sneaky Credit-->
 <div class="pt-5">
     <h5 class="mt-2 text-dark">Team B: Leo & Nick</h5>
 </div>
-<!--Movie Cards-->
-    <div id="movieList" class ="container-fluid m-0 mt-2 d-flex">
-<!--      first test movie card-->
-        <div class="container m-1">
-            <div class="flip-card mx-auto">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg" alt="Avatar" class="">
-                    </div>
-                    <div class="flip-card-back">
-                        <h2 class="text-center">The Godfather</h2>
-                        <h6 class="text-center">Director: Francis Ford Coppola</h6>
-                        <p class="text-center">Actors: Marlon Brando, Al Pacino, James Caan, Diane Keaton</p>
-                        <p>Rating: 9.2</p>
-                        <p>RunTime: 175</p>
-                        <p>Year: 1972</p>
-                        <p>Genre: Crime, Drama</p>
-                        <button class="btn btn-outline-danger deleter">Delete</button>
-                    </div>
+
+<!--Movie Templates-->
+<div id="movieList" class="container-fluid m-0 mt-2 d-flex">
+    <div class="container m-1">
+        <div class="flip-card mx-auto">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"
+                         alt="Avatar" class="">
+                </div>
+                <div class="flip-card-back">
+                    <h2 class="text-center">The Godfather</h2>
+                    <h6 class="text-center">Director: Francis Ford Coppola</h6>
+                    <p class="text-center">Actors: Marlon Brando, Al Pacino, James Caan, Diane Keaton</p>
+                    <p>Rating: 9.2</p>
+                    <p>RunTime: 175</p>
+                    <p>Year: 1972</p>
+                    <p>Genre: Crime, Drama</p>
+                    <button class="btn btn-outline-danger deleter">Delete</button>
                 </div>
             </div>
         </div>
-
-      <div class="container m-1">
-        <div class="flip-card mx-auto">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <img src="https://m.media-amazon.com/images/M/MV5BMTQ1OTU0ODcxMV5BMl5BanBnXkFtZTcwOTMxNTUwOA@@._V1_SX300.jpg" alt="Avatar" class="">
-            </div>
-            <div class="flip-card-back">
-              <h1 class="text-center">John Doe</h1> 
-              <p class="text-center">Architect & Engineer</p> 
-              <p class="text-center">We love that guy</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-<!--        end of movie list container-->
     </div>
+</div>
 
-    <!-- The core Firebase JS SDK and Databse library -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-firestore.js"></script>
+<!-- The core Firebase JS SDK and Databse library -->
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-firestore.js"></script>
 
-    <!-- A local JS file to store the firebase API Key. WARNING: Do not commit this file -->
-    <script src="js/keys.js"></script>
+<!-- A local JS file to store the firebase API Key. WARNING: Do not commit this file -->
+<script src="js/keys.js"></script>
 
-    <!---BootStrap CDN ------>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<!---BootStrap CDN ------>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
 
-    <!-- Utilities and higher level functions to simplify database fetches -->
-    <script src="js/firebase-config.js"></script>
+<!-- Utilities and higher level functions to simplify database fetches -->
+<script src="js/firebase-config.js"></script>
 
-    <!-- Your local JS file to add functions that interact with the database -->
-    <script src="js/movies-api.js"></script>
+<!-- Your local JS file to add functions that interact with the database -->
+<script src="js/movies-api.js"></script>
 
-    <!-- Your local JS file to add functions that USE your functions from movies-api.js
-    and INTERACT with the DOM -->
-    <script src="js/index.js"></script>
-  </body>
+<!-- Your local JS file to add functions that USE your functions from movies-api.js
+and INTERACT with the DOM -->
+<script src="js/index.js"></script>
+</body>
 </html>
