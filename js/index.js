@@ -110,7 +110,7 @@ async function getMovieInfo(movieName) {
 function movieCards(movie, index) {
     const {title, year, director, rating, runtime, genre, actors, Poster} = movie;
     let HTML = `
-    <div id="${index}-Movie" class="p-0 m-0">
+    <div id="${index}-Movie" class="p-0 m-5">
         <div class="flip-card mx-auto">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
@@ -126,7 +126,7 @@ function movieCards(movie, index) {
                     <p class="${genre} m-0"><b>Genre: ${genre}</b></p>
                     <div>
                     <button class="btn btn-outline-danger deleter">Delete</button>
-                    <button class="btn btn-outline-white editor">Edit</button>
+                    <button class="btn btn-secondary editor">Edit</button>
                     </div>
                 </div>
             </div>
@@ -147,7 +147,7 @@ function cardEditor(movie){
   </div>
   <div>
     <label for="year">Year:</label>
-    <input type="number" id="year" name="year" placeholder="${year}">
+    <input type="text" id="year" name="year" placeholder="${year}">
   </div>
   <div>
     <label for="director">Director:</label>
@@ -155,7 +155,7 @@ function cardEditor(movie){
   </div>
   <div>
     <label for="rating">Rating:</label>
-    <input type="number" id="rating" name="rating" placeholder="${rating}">
+    <input type="text" id="rating" name="rating" placeholder="${rating}">
   </div>
   <div>
     <label for="runtime">Runtime:</label>
