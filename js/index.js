@@ -92,13 +92,13 @@ async function updateList(){
 //Find movie info from OM-Data base
 async function getMovieInfo(movieName) {
     const apiKey = keys.OMDb;
-    const response = await fetch(
-        `http://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(
-            movieName
-        )}`
+    const response = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(movieName)}`
     );
-    const { Actors, Director, Genre, Ratings, Runtime, Title, Year, Poster } = await response.json();
-    let result = {
+    const data = await response.json(), { Actors, Director, Genre, Ratings, Runtime, Title, Year, Poster } = data;
+
+    if (data.Error === 'Movie not found!') alert('Check Spelling');
+
+    return {
         title: Title,
         year: Number(Year),
         director: Director,
@@ -107,8 +107,7 @@ async function getMovieInfo(movieName) {
         genre: Genre,
         actors: Actors,
         Poster
-    }
-    return result;
+    };
 }
 
 //HTML individual movie format:
@@ -203,7 +202,6 @@ function updateMovies(e) {
     // e.preventDefault();
     let filteredMovies = [];
     let movieName = document.getElementById('movieFiltered').value;
-    // if(movieName.value.length>0){
     filteredMovies = allMovie.filter(movie => {
         return (movie.title.toLowerCase().match(movieName.toLowerCase())); // match() > startWith() since many movies begin with 'The'
     });
