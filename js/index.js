@@ -97,7 +97,7 @@ async function getMovieInfo(movieName) {
     const data = await response.json(), { Actors, Director, Genre, Ratings, Runtime, Title, Year, Poster } = data;
 
     if (data.Error === 'Movie not found!') alert('Check Spelling');
-console.log(data)
+
     return {
         title: Title,
         year: Number(Year),
