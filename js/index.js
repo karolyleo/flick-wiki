@@ -89,7 +89,7 @@ async function updateList(){
         renderMovies(allMovie);
 }
 
-//Find movie info from OM-Data base
+//Find movie info from OMBD-Data base
 async function getMovieInfo(movieName) {
     const apiKey = keys.OMDb;
     const response = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(movieName)}`
@@ -129,7 +129,7 @@ function movieCards(movie, index) {
                     <p class="m-0">Year: ${year}</p>
                     <p class="${genre} m-0"><b>Genre: ${genre}</b></p>
                     <div>
-                    <button class="btn btn-outline-danger deleter">Delete</button>
+                    <button class="btn btn-outline-danger deleter">Delete </button>
                     <button class="btn btn-secondary editor">Edit</button>
                     </div>
                 </div>
@@ -144,37 +144,40 @@ function cardEditor(movie){
     const {title, year, director, rating, runtime, genre, actors, Poster, id} = movie;
 
     return `
-<form class="bg-white m-5 p-3">
-  <div>
+<form class=" bg-white m-5 p-3 ">
+  <div class ="row">
     <label for="title">Title:</label>
     <input type="text" id="title" name="title" placeholder="${title}">
   </div>
-  <div>
+  <div class="row ">
     <label for="year">Year:</label>
     <input type="text" id="year" name="year" placeholder="${year}">
   </div>
-  <div>
+  <div class="row">
     <label for="director">Director:</label>
     <input type="text" id="director" name="director" placeholder="${director}">
   </div>
-  <div>
+  <div class="row">
     <label for="rating">Rating:</label>
     <input type="text" id="rating" name="rating" placeholder="${rating}">
   </div>
-  <div>
+  <div class="row">
     <label for="runtime">Runtime:</label>
     <input type="text" id="runtime" name="runtime" placeholder="${runtime}">
   </div>
-  <div>
+  <div class="row">
     <label for="genre">Genre:</label>
     <input type="text" id="genre" name="genre" placeholder="${genre}">
   </div>
-  <div>
+  <div class="row">
     <label for="actors">Actors:</label>
     <input type="text" id="actors" name="actors" placeholder="${actors}">
   </div>
-  <button class="btn btn-primary updater m-3">Update</button>
-  <p id="${id}"> id : ${id}</p>
+  <div class="text-center">
+  <button class=" btn btn-danger updater m-4 ">Update</button>
+  </div>
+  <p id="${id}" class="text-center"> Movie id : ${id}</p>
+  
 </form> 
 <img src="${Poster}" class="m-5 w-25 h-50">
 `;
@@ -199,7 +202,7 @@ function wait(milliseconds) {
 
 //this filters the list to show only what is desired.
 function updateMovies(e) {
-    // e.preventDefault();
+
     let filteredMovies = [];
     let movieName = document.getElementById('movieFiltered').value;
     filteredMovies = allMovie.filter(movie => {
