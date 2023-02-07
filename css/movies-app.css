@@ -21,13 +21,12 @@ img {
 .navbar {
     box-shadow: 1px 7px 7px 7px #dc3333;
 }
-
+/* CSS for Flip Card Effect */
 .flip-card {
     background-color: transparent;
     width: 300px;
     height: 300px;
     perspective: 1000px;
-
 }
 
 .flip-card-inner {
@@ -36,8 +35,6 @@ img {
     text-align: center;
     transition: transform 0.6s;
     transform-style: preserve-3d;
-
-
 }
 
 .flip-card:hover .flip-card-inner {
@@ -62,7 +59,7 @@ img {
     height: 300px;
 }
 
-/* Animation property */
+/* Animation For Home Icon */
 .home {
     animation: wiggle 2s linear infinite;
 }
