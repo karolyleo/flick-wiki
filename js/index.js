@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('movieList').addEventListener('click', async function(e) {
         if (e.target.id === 'firebaseMoviePush') {
             await addMovie(singledMovie);
-            wait(3000);
+            await wait(7000);
             await updateList();
         }
     });
@@ -193,10 +193,11 @@ function renderMovies(movies = allMovie){
 
 //Little loader
 function wait(milliseconds) {
+    location.reload();
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(milliseconds);
-        }, milliseconds);
+            }, milliseconds);
     });
 }
 

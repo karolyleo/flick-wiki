@@ -63,6 +63,14 @@ img {
 .home {
     animation: wiggle 2s linear infinite;
 }
+.home {
+    left: calc(50% - 3em);
+    top: calc(50% - 2em)
+;
+    background: linear-gradient(top, #555, #333);
+    border: none;
+    transform-origin: 50% 5em;
+}
 
 /* Keyframes */
 @keyframes wiggle {
@@ -89,13 +97,7 @@ img {
     }
 }
 
-.home {
-    left: calc(50% - 3em);
-    top: calc(50% - 2em);
-    background: linear-gradient(top, #555, #333);
-    border: none;
-    transform-origin: 50% 5em;
-}
+
 
 html:before {
     animation: grain 8s steps(10) infinite;
