@@ -1,4 +1,4 @@
-(async () => {
+// (async () => {
     // This is the entry point for your application. Write all of your code here. Before you can use the database, you need to configure the "db" object with your team name in the "js/movies-api.js" file.
 
     //This loads the main list from firebase onto the home page
@@ -94,11 +94,11 @@ async function getMovieInfo(movieName) {
     const apiKey = keys.OMDb;
     const response = await fetch(`http://www.omdbapi.com/?apikey=${apiKey}&t=${encodeURIComponent(movieName)}`
     );
-    const data = await response.json(), { Actors, Director, Genre, Ratings, Runtime, Title, Year, Poster } = data;
+    const data = await response.json(), { Actors, Director, Genre, Ratings, Runtime, Title, Year, Poster } = await data;
 
     if (data.Error === 'Movie not found!') alert('Check Spelling');
 
-    return {
+    return  {
         title: Title,
         year: Number(Year),
         director: Director,
@@ -217,4 +217,4 @@ function editMovie(index){
     document.getElementById('movieList').innerHTML = cardEditor(allMovie[index]);
 }
 
-})();
+// })();
