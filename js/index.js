@@ -1,4 +1,8 @@
-updateList();
+// (async () => {
+    // This is the entry point for your application. Write all of your code here. Before you can use the database, you need to configure the "db" object with your team name in the "js/movies-api.js" file.
+
+    //This loads the main list from firebase onto the home page
+    updateList();
 
 //helper variables
 let singledMovie = '', allMovie =  0, movieIndex = 0;
@@ -15,10 +19,9 @@ document.getElementById("potentialMovieSearch").addEventListener("click", async 
     singledMovie = await getMovieInfo(document.getElementById('potentialMovie').value);
 
     let htmlHelper = `${movieCards(singledMovie)}
-        <div class="container d-flex align-items-center justify-content-center">
-            <button id="firebaseMoviePush" class="btn btn-primary w-50 h-25">Add to List</button> 
-        </div>`;
-
+    <div class="container d-flex align-items-center justify-content-center">
+        <button id="firebaseMoviePush" class="btn btn-primary w-50 h-25">Add to List</button> 
+    </div>`;
     document.getElementById('movieList').innerHTML = htmlHelper;
 });
 
@@ -81,8 +84,8 @@ document.getElementById("showAllMovies").addEventListener("click", updateList);
 
 //This is to limit the amount of times firebase is hit
 async function updateList(){
-    allMovie = await getMovies();
-    renderMovies(allMovie);
+        allMovie = await getMovies();
+        renderMovies(allMovie);
 }
 
 //Find movie info from OMBD-Data base
@@ -110,29 +113,29 @@ async function getMovieInfo(movieName) {
 function movieCards(movie, index) {
     const {title, year, director, rating, runtime, genre, actors, Poster} = movie;
     let HTML = `
-        <div id="${index}-Movie" class="p-0 m-0">
-            <div class="flip-card mx-auto">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="${Poster}" alt="Avatar" class="img m-4">
-                    </div>
-                    <div class="flip-card-back">
-                        <h2 class="text-center">${title}</h2>
-                        <h6 class="text-center"><i>Director: ${director}</i></h6>
-                        <p class="text-center m-0">Actors: ${actors}</p>
-                        <p class="m-0">Rating: ${rating}</p>
-                        <p class="m-0">RunTime: ${runtime}</p>
-                        <p class="m-0">Year: ${year}</p>
-                        <p class="${genre} m-0"><b>Genre: ${genre}</b></p>
-                        <div>
-                        <button class="btn btn-outline-danger deleter">Delete </button>
-                        <button class="btn btn-secondary editor">Edit</button>
-                        </div>
+    <div id="${index}-Movie" class="p-0 m-0">
+        <div class="flip-card mx-auto">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="${Poster}" alt="Avatar" class="img m-4">
+                </div>
+                <div class="flip-card-back">
+                    <h2 class="text-center">${title}</h2>
+                    <h6 class="text-center"><i>Director: ${director}</i></h6>
+                    <p class="text-center m-0">Actors: ${actors}</p>
+                    <p class="m-0">Rating: ${rating}</p>
+                    <p class="m-0">RunTime: ${runtime}</p>
+                    <p class="m-0">Year: ${year}</p>
+                    <p class="${genre} m-0"><b>Genre: ${genre}</b></p>
+                    <div>
+                    <button class="btn btn-outline-danger deleter">Delete </button>
+                    <button class="btn btn-secondary editor">Edit</button>
                     </div>
                 </div>
             </div>
-        </div>`;
-    return HTML
+        </div>
+    </div>`;
+    return HTML;
 }
 
 //HTML for edit page:
@@ -140,43 +143,43 @@ function cardEditor(movie){
     const {title, year, director, rating, runtime, genre, actors, Poster, id} = movie;
 
     return `
-    <form class=" bg-white m-5 p-3 ">
-      <div class ="row">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" placeholder="${title}">
-      </div>
-      <div class="row ">
-        <label for="year">Year:</label>
-        <input type="text" id="year" name="year" placeholder="${year}">
-      </div>
-      <div class="row">
-        <label for="director">Director:</label>
-        <input type="text" id="director" name="director" placeholder="${director}">
-      </div>
-      <div class="row">
-        <label for="rating">Rating:</label>
-        <input type="text" id="rating" name="rating" placeholder="${rating}">
-      </div>
-      <div class="row">
-        <label for="runtime">Runtime:</label>
-        <input type="text" id="runtime" name="runtime" placeholder="${runtime}">
-      </div>
-      <div class="row">
-        <label for="genre">Genre:</label>
-        <input type="text" id="genre" name="genre" placeholder="${genre}">
-      </div>
-      <div class="row">
-        <label for="actors">Actors:</label>
-        <input type="text" id="actors" name="actors" placeholder="${actors}">
-      </div>
-      <div class="text-center">
-      <button class=" btn btn-danger updater m-4 ">Update</button>
-      </div>
-      <p id="${id}" class="text-center"> Movie id : ${id}</p>
-      
-    </form> 
-    <img src="${Poster}" class="m-5 w-25 h-50">
-    `;
+<form class=" bg-white m-5 p-3 ">
+  <div class ="row">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" placeholder="${title}">
+  </div>
+  <div class="row ">
+    <label for="year">Year:</label>
+    <input type="text" id="year" name="year" placeholder="${year}">
+  </div>
+  <div class="row">
+    <label for="director">Director:</label>
+    <input type="text" id="director" name="director" placeholder="${director}">
+  </div>
+  <div class="row">
+    <label for="rating">Rating:</label>
+    <input type="text" id="rating" name="rating" placeholder="${rating}">
+  </div>
+  <div class="row">
+    <label for="runtime">Runtime:</label>
+    <input type="text" id="runtime" name="runtime" placeholder="${runtime}">
+  </div>
+  <div class="row">
+    <label for="genre">Genre:</label>
+    <input type="text" id="genre" name="genre" placeholder="${genre}">
+  </div>
+  <div class="row">
+    <label for="actors">Actors:</label>
+    <input type="text" id="actors" name="actors" placeholder="${actors}">
+  </div>
+  <div class="text-center">
+  <button class=" btn btn-danger updater m-4 ">Update</button>
+  </div>
+  <p id="${id}" class="text-center"> Movie id : ${id}</p>
+  
+</form> 
+<img src="${Poster}" class="m-5 w-25 h-50">
+`;
 }
 
 //Shows movies in the DOM
@@ -193,7 +196,7 @@ function wait(milliseconds) {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(milliseconds);
-        }, milliseconds);
+            }, milliseconds);
     });
 }
 
@@ -212,3 +215,5 @@ function updateMovies(e) {
 function editMovie(index){
     document.getElementById('movieList').innerHTML = cardEditor(allMovie[index]);
 }
+
+// })();
