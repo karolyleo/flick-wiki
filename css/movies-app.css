@@ -6,6 +6,20 @@
     background: linear-gradient(to right, #0F1925, #23494E);
 }
 
+.bg-card {
+    background: linear-gradient(to right, #181f29, #121923);
+}
+
+.card-img-wrapper {
+    overflow: hidden;
+    height: 30%;
+    transition: height 0.8s ease;
+}
+
+.card-img-wrapper:hover {
+    height: 100%;
+}
+
 .text-navbar {
     color: #db5d36;
 }
