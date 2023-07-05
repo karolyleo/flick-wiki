@@ -8,6 +8,9 @@
 
 .bg-card {
     background: linear-gradient(35deg, #161d28, #161520);
+    width: 18rem;
+    box-shadow: 1rem 1rem 1rem rgba(0,0,0,0.43)!important;
+
 }
 
 .card-img-wrapper, .card-body {
@@ -20,11 +23,14 @@
     height: 100%;
 }
 
-/*.card-body:hover p, h6 {*/
-/*    transform: translateY(80%);*/
-/*}*/
+.card-img-wrapper:hover +  .card-body {
+    /*Allows for visibility*/
+    color: rgba(0, 0, 0, 0);
+}
 
 .card .card-body {
+    color:rgba(255,255,255,0.34);
+    transition: color 0.8s;
     position: absolute;
     bottom: 0;
     width: 100%;
