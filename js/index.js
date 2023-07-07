@@ -113,6 +113,8 @@ async function getMovieInfo(movieName) {
 function movieCards(movie, index) {
     const {title, year, director, rating, runtime, genre, actors, Poster} = movie;
     let HTML = `
+<div class="carousel-item">
+<div class="col-md-3">
     <div id="${index}-Movie" class="card bg-card">
         <span class="card-img-wrapper">
             <img src="${Poster}" alt="Avatar" class="card-img-top p-1">
@@ -130,7 +132,9 @@ function movieCards(movie, index) {
                     <button class="btn btn-secondary editor">Edit</button>
                     </div>
          </div>
-    </div>`;
+    </div>
+</div>
+</div>`;
     return HTML;
 }
 
@@ -184,6 +188,7 @@ function renderMovies(movies = allMovie){
     movies.forEach((movie, index)=>{htmlHelper+=movieCards(movie, index)});
     htmlHelper+='</div>'
     document.getElementById('movieList').innerHTML = htmlHelper;
+    start();
 }
 
 //Little loader
@@ -213,3 +218,23 @@ function editMovie(index){
 }
 
 // })();
+function start(){
+    const movieList = document.querySelector('#movieList :first-child').firstElementChild;
+    movieList.classList.add('active');
+
+    let items = document.querySelectorAll('.carousel .carousel-item')
+
+    items.forEach((el) => {
+        const minPerSlide = 4
+        let next = el.nextElementSibling
+        for (var i=1; i<minPerSlide; i++) {
+            if (!next) {
+                // wrap carousel by using first child
+                next = items[0]
+            }
+            let cloneChild = next.cloneNode(true)
+            el.appendChild(cloneChild.children[0])
+            next = next.nextElementSibling
+        }
+    })
+}
