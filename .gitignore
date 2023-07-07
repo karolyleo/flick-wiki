@@ -1,4 +1,9 @@
+<<<<<<< HEAD
+/js/keys.js
+/js/firebase-config.js
+=======
 js/keys.js
 .idea/*
 *.iml
 .DS_Store
+>>>>>>> 0aef9bc29d48e1a0d434de49caa6894a6a2b3e36
