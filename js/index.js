@@ -113,27 +113,23 @@ async function getMovieInfo(movieName) {
 function movieCards(movie, index) {
     const {title, year, director, rating, runtime, genre, actors, Poster} = movie;
     let HTML = `
-    <div id="${index}-Movie" class="p-0 m-0">
-        <div class="flip-card mx-auto">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <img src="${Poster}" alt="Avatar" class="img m-4">
-                </div>
-                <div class="flip-card-back">
-                    <h2 class="text-center">${title}</h2>
-                    <h6 class="text-center"><i>Director: ${director}</i></h6>
-                    <p class="text-center m-0">Actors: ${actors}</p>
-                    <p class="m-0">Rating: ${rating}</p>
-                    <p class="m-0">RunTime: ${runtime}</p>
-                    <p class="m-0">Year: ${year}</p>
-                    <p class="${genre} m-0"><b>Genre: ${genre}</b></p>
+    <div id="${index}-Movie" class="card bg-card">
+        <span class="card-img-wrapper">
+            <img src="${Poster}" alt="Avatar" class="card-img-top p-1">
+        </span>
+        <div class="card-body">
+            <h6 class="text-white card-title">${title}</h6>
+                    <h6 class="card-text m-0"><i>Director: ${director}</i></h6>
+                    <p class="card-text m-0">Actors: ${actors}</p>
+                    <p class="card-text m-0">Rating: ${rating}</p>
+                    <p class="card-text m-0">RunTime: ${runtime}</p>
+                    <p class="card-text m-0">Year: ${year}</p>
+                    <p class="${genre} card-text m-0"><b>Genre: ${genre}</b></p>
                     <div>
                     <button class="btn btn-outline-danger deleter">Delete </button>
                     <button class="btn btn-secondary editor">Edit</button>
                     </div>
-                </div>
-            </div>
-        </div>
+         </div>
     </div>`;
     return HTML;
 }
