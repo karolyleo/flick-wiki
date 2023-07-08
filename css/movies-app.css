@@ -17,6 +17,7 @@
     overflow: hidden;
     height: 50%;
     transition: height 0.8s ease;
+    background-color: #161d28;
 }
 
 .card-img-wrapper:hover {
@@ -26,6 +27,7 @@
 .card-img-wrapper:hover +  .card-body {
     /*Allows for visibility*/
     color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .card .card-body {

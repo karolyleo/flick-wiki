@@ -5,7 +5,7 @@
     updateList();
 
 //helper variables
-let singledMovie = '', allMovie =  0, movieIndex = 0;
+let singledMovie = '', allMovie =  0, movieIndex = 0, helper;
 
 //When enter or submit is pressed, for Movie Search
 document.getElementById("movieFilteredSearch").addEventListener("click", async  (e)=> {
@@ -112,6 +112,8 @@ async function getMovieInfo(movieName) {
 //HTML individual movie format:
 function movieCards(movie, index) {
     const {title, year, director, rating, runtime, genre, actors, Poster} = movie;
+    helper = rating;
+
     let HTML = `
 <div class="carousel-item">
 <div class="col-md-3">
@@ -122,10 +124,12 @@ function movieCards(movie, index) {
         <div class="card-body">
             <h6 class="text-white card-title">${title}</h6>
                     <h6 class="card-text m-0"><i>Director: ${director}</i></h6>
+                    <span class="row">
+                        <p class="card-text col-5 m-0">Rating-${rating}</p>
+                        <p class="card-text col-4 m-0">${runtime}</p>
+                        <p class="card-text col-3 m-0">${year}</p>
+                    </span>
                     <p class="card-text m-0">Actors: ${actors}</p>
-                    <p class="card-text m-0">Rating: ${rating}</p>
-                    <p class="card-text m-0">RunTime: ${runtime}</p>
-                    <p class="card-text m-0">Year: ${year}</p>
                     <p class="${genre} card-text m-0"><b>Genre: ${genre}</b></p>
                     <div>
                     <button class="btn btn-outline-danger deleter">Delete </button>
@@ -141,7 +145,6 @@ function movieCards(movie, index) {
 //HTML for edit page:
 function cardEditor(movie){
     const {title, year, director, rating, runtime, genre, actors, Poster, id} = movie;
-
     return `
 <form class=" bg-white m-5 p-3 ">
   <div class ="row">
