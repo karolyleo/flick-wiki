@@ -17,6 +17,7 @@
     overflow: hidden;
     height: 50%;
     transition: height 0.8s ease;
+    background-color: #161d28;
 }
 
 .card-img-wrapper:hover {
@@ -26,6 +27,7 @@
 .card-img-wrapper:hover +  .card-body {
     /*Allows for visibility*/
     color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
 }
 
 .card .card-body {
@@ -41,4 +43,39 @@
 
 .text-navbar {
     color: #db5d36;
+}
+
+/*Carousel-inner*/
+@media (max-width: 767px) {
+    .carousel-inner .carousel-item > div {
+        display: none;
+    }
+    .carousel-inner .carousel-item > div:first-child {
+        display: block;
+    }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+/* medium and up screens */
+@media (min-width: 768px) {
+
+    .carousel-inner .carousel-item-end.active,
+    .carousel-inner .carousel-item-next {
+        transform: translateX(25%);
+    }
+
+    .carousel-inner .carousel-item-start.active,
+    .carousel-inner .carousel-item-prev {
+        transform: translateX(-25%);
+    }
+}
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start {
+    transform: translateX(0);
 }

@@ -112,7 +112,10 @@ async function getMovieInfo(movieName) {
 //HTML individual movie format:
 function movieCards(movie, index) {
     const {title, year, director, rating, runtime, genre, actors, Poster} = movie;
+
     let HTML = `
+<div class="carousel-item">
+<div class="col-lg-3 col-md-4 col-sm-5">
     <div id="${index}-Movie" class="card bg-card">
         <span class="card-img-wrapper">
             <img src="${Poster}" alt="Avatar" class="card-img-top p-1">
@@ -120,24 +123,27 @@ function movieCards(movie, index) {
         <div class="card-body">
             <h6 class="text-white card-title">${title}</h6>
                     <h6 class="card-text m-0"><i>Director: ${director}</i></h6>
+                    <span class="row">
+                        <p class="card-text col-5 m-0">Rating-${rating}</p>
+                        <p class="card-text col-4 m-0">${runtime}</p>
+                        <p class="card-text col-3 m-0">${year}</p>
+                    </span>
                     <p class="card-text m-0">Actors: ${actors}</p>
-                    <p class="card-text m-0">Rating: ${rating}</p>
-                    <p class="card-text m-0">RunTime: ${runtime}</p>
-                    <p class="card-text m-0">Year: ${year}</p>
                     <p class="${genre} card-text m-0"><b>Genre: ${genre}</b></p>
-                    <div>
+                    <span class="d-flex justify-content-between mt-1">
                     <button class="btn btn-outline-danger deleter">Delete </button>
                     <button class="btn btn-secondary editor">Edit</button>
-                    </div>
+                    </span>
          </div>
-    </div>`;
+    </div>
+</div>
+</div>`;
     return HTML;
 }
 
 //HTML for edit page:
 function cardEditor(movie){
     const {title, year, director, rating, runtime, genre, actors, Poster, id} = movie;
-
     return `
 <form class=" bg-white m-5 p-3 ">
   <div class ="row">
@@ -184,6 +190,7 @@ function renderMovies(movies = allMovie){
     movies.forEach((movie, index)=>{htmlHelper+=movieCards(movie, index)});
     htmlHelper+='</div>'
     document.getElementById('movieList').innerHTML = htmlHelper;
+    start();
 }
 
 //Little loader
@@ -213,3 +220,23 @@ function editMovie(index){
 }
 
 // })();
+function start(){
+    const movieList = document.querySelector('#movieList :first-child').firstElementChild;
+    movieList.classList.add('active');
+
+    let items = document.querySelectorAll('.carousel .carousel-item')
+
+    items.forEach((el) => {
+        const minPerSlide = 4
+        let next = el.nextElementSibling
+        for (var i=1; i<minPerSlide; i++) {
+            if (!next) {
+                // wrap carousel by using first child
+                next = items[0]
+            }
+            let cloneChild = next.cloneNode(true)
+            el.appendChild(cloneChild.children[0])
+            next = next.nextElementSibling
+        }
+    })
+}
