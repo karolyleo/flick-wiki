@@ -5,7 +5,7 @@
     updateList();
 
 //helper variables
-let singledMovie = '', allMovie =  0, movieIndex = 0, helper;
+let singledMovie = '', allMovie =  0, movieIndex = 0;
 
 //When enter or submit is pressed, for Movie Search
 document.getElementById("movieFilteredSearch").addEventListener("click", async  (e)=> {
@@ -112,11 +112,10 @@ async function getMovieInfo(movieName) {
 //HTML individual movie format:
 function movieCards(movie, index) {
     const {title, year, director, rating, runtime, genre, actors, Poster} = movie;
-    helper = rating;
 
     let HTML = `
 <div class="carousel-item">
-<div class="col-md-3">
+<div class="col-lg-3 col-md-4 col-sm-5">
     <div id="${index}-Movie" class="card bg-card">
         <span class="card-img-wrapper">
             <img src="${Poster}" alt="Avatar" class="card-img-top p-1">
@@ -131,10 +130,10 @@ function movieCards(movie, index) {
                     </span>
                     <p class="card-text m-0">Actors: ${actors}</p>
                     <p class="${genre} card-text m-0"><b>Genre: ${genre}</b></p>
-                    <div>
+                    <span class="d-flex justify-content-between mt-1">
                     <button class="btn btn-outline-danger deleter">Delete </button>
                     <button class="btn btn-secondary editor">Edit</button>
-                    </div>
+                    </span>
          </div>
     </div>
 </div>
