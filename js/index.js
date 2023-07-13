@@ -1,8 +1,8 @@
 // (async () => {
-    // This is the entry point for your application. Write all of your code here. Before you can use the database, you need to configure the "db" object with your team name in the "js/movies-api.js" file.
+// This is the entry point for your application. Write all of your code here. Before you can use the database, you need to configure the "db" object with your team name in the "js/movies-api.js" file.
 
-    //This loads the main list from firebase onto the home page
-    updateList();
+//This loads the main list from firebase onto the home page
+updateList();
 
 //helper variables
 let singledMovie = '', allMovie =  0, movieIndex = 0;
@@ -84,8 +84,8 @@ document.getElementById("showAllMovies").addEventListener("click", updateList);
 
 //This is to limit the amount of times firebase is hit
 async function updateList(){
-        allMovie = await getMovies();
-        renderMovies(allMovie);
+    allMovie = await getMovies();
+    renderMovies(allMovie);
 }
 
 //Find movie info from OMBD-Data base
@@ -134,9 +134,9 @@ function movieCards(movie, index) {
                     <button class="btn btn-outline-danger deleter">Delete </button>
                     <button class="btn btn-secondary editor">Edit</button>
                     </span>
-         </div>
+            </div>
+        </div>
     </div>
-</div>
 </div>`;
     return HTML;
 }
@@ -199,7 +199,7 @@ function wait(milliseconds) {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(milliseconds);
-            }, milliseconds);
+        }, milliseconds);
     });
 }
 
