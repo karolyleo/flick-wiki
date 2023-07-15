@@ -10,7 +10,14 @@
     background: linear-gradient(35deg, #161d28, #161520);
     width: 18rem;
     box-shadow: 1rem 1rem 1rem rgba(0,0,0,0.43)!important;
+}
 
+.bg-social {
+    background: linear-gradient(0deg, #171f27, #1f262e);
+}
+
+.bg-footer {
+    background: linear-gradient(30deg, #0d121b, #172027);
 }
 
 .card-img-wrapper, .card-body {

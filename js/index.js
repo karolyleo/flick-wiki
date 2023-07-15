@@ -240,3 +240,45 @@ function start(){
         }
     })
 }
+
+/**
+ * Emergency backup for the movie container
+ * <div class="container pt-1 mt-4 d-flex">
+ *     <div class="card bg-card">
+ *         <span class="card-img-wrapper">
+ *             <img class="card-img-top p-1" src="https://m.media-amazon.com/images/M/MV5BOTA5NjhiOTAtZWM0ZC00MWNhLThiMzEtZDFkOTk2OTU1ZDJkXkEyXkFqcGdeQXVyMTA4NDI1NTQx._V1_SX300.jpg" alt="Action, Adventure, Fantasy">
+ *         </span>
+ *         <div class="card-body">
+ *             <h6 class="card-title text-white">Star Wars: Episode IV - A New Hope</h6>
+ *             <p class="card-text m-0">runtime : "121 min"</p>
+ *             <p class="card-text m-0">director : "George Lucas"</p>
+ *             <p class="card-text m-0">rating : "8.6/10"</p>
+ *             <p class="card-text m-0">actors : "Mark Hamill, Harrison Ford, Carrie Fisher"</p>
+ *             <p class="card-text m-0">year : 1977</p>
+ *             <!--            <a href="#" value="4OWTxDfKTArH4EAxJfjj" class="btn btn-primary">Go somewhere</a>-->
+ *             <div>
+ *                 <button class="btn btn-outline-danger deleter">Delete </button>
+ *                 <button class="btn btn-secondary editor">Edit</button>
+ *             </div>
+ *         </div>
+ *     </div>
+ *     <div class="card bg-card">
+ *         <div class="card-img-wrapper">
+ *             <img class="card-img-top p-1" src="https://m.media-amazon.com/images/M/MV5BNjdjNGQ4NDEtNTEwYS00MTgxLTliYzQtYzE2ZDRiZjFhZmNlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg" alt="Avatar" class="img m-4">
+ *         </div>
+ *         <div class="card-body">
+ *             <h2 class="card-title text-white">Scarface</h2>
+ *             <h6 class="text-center"><i>Director: Brian De Palma</i></h6>
+ *             <p class="text-center m-0">Actors: Al Pacino, Michelle Pfeiffer, Steven Bauer</p>
+ *             <p class="m-0">Rating: 8.3/10</p>
+ *             <p class="m-0">RunTime: 170 min</p>
+ *             <p class="m-0">Year: 1983</p>
+ *             <p class="Crime, Drama m-0"><b>Genre: Crime, Drama</b></p>
+ *             <div>
+ *                 <button class="btn btn-outline-danger deleter">Delete </button>
+ *                 <button class="btn btn-secondary editor">Edit</button>
+ *             </div>
+ *         </div>
+ *     </div>
+ * </div>
+ */
